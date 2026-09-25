@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>艾莱亚 · 黄昏学院</title>
+  <link rel="icon" href="../../../../../images/background/SCHOOL_ICON.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../../../../images/background/SCHOOL_ICON.png">
+  <link rel="stylesheet" href="../../../../../css/tokens.css">
+  <link rel="stylesheet" href="../../../../../css/base.css">
+  <link rel="stylesheet" href="../../../../../css/page.css">
+  <link rel="stylesheet" href="../../../../../css/character.css">
+</head>
+<body data-base="../../../../.." data-page="factions" data-title="factions.items.0.departments.0.members.0.title">
+  <article class="sheet sheet--wide">
+    <p class="sheet__home"><a href="../../../../../index.html" data-bind="name">黄昏学院</a></p>
+    <section>
+      <h2 data-bind="ui.profile">角色简介</h2>
+      <div class="char-intro">
+        <div class="char-intro__top">
+          <figure class="char-intro__avatar">
+            <img data-src-bind="factions.items.0.departments.0.members.0.head" alt="艾莱亚大头">
+          </figure>
+          <div class="char-intro__text">
+            <h1 data-bind="factions.items.0.departments.0.members.0.title">艾莱亚</h1>
+            <div class="prose" data-bind-paragraphs="factions.items.0.departments.0.members.0.intro">
+              <p>待填入</p>
+            </div>
+          </div>
+        </div>
+        <div class="char-intro__bottom">
+          <ul class="char-intro__details" data-bind-facts="factions.items.0.departments.0.members.0.facts"></ul>
+          <figure class="char-intro__figure">
+            <img data-src-bind="factions.items.0.departments.0.members.0.full" alt="艾莱亚全身">
+          </figure>
+        </div>
+      </div>
+    </section>
+    <img class="split-line" src="../../../../../images/background/split_line.png" alt="">
+    <section>
+      <h2 data-bind="ui.place">所属</h2>
+      <ul class="char-place">
+        <li><span class="char-intro__label">所属势力</span><a href="../../index.html" data-bind="factions.items.0.title">黄昏学院</a></li>
+        <li><span class="char-intro__label">部门</span><a href="../index.html" data-bind="factions.items.0.departments.0.title">医疗部</a></li>
+        <li><span class="char-intro__label">职务</span><span data-bind="factions.items.0.departments.0.members.0.role">护理师</span></li>
+      </ul>
+    </section>
+    <img class="split-line" src="../../../../../images/background/split_line.png" alt="">
+    <section>
+      <h2 data-bind="ui.studentId">学生证</h2>
+      <img class="char-id" data-src-bind="factions.items.0.departments.0.members.0.studentId" alt="艾莱亚学生证">
+    </section>
+    <img class="split-line" src="../../../../../images/background/split_line.png" alt="">
+    <section>
+      <h2 data-bind="ui.traits">性格描述</h2>
+      <ul class="char-traits" data-bind-list="factions.items.0.departments.0.members.0.traits"></ul>
+    </section>
+    <p class="sheet__back"><a href="../index.html">返回<span data-bind="factions.items.0.departments.0.title">医疗部</span></a></p>
+  </article>
+  <script src="../../../../../content/site.js"></script>
+  <script src="../../../../../js/apply-content.js"></script>
+</body>
+</html>

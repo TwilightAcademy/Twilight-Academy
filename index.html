@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>黄昏学院</title>
+  <link rel="icon" href="images/background/SCHOOL_ICON.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/background/SCHOOL_ICON.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body data-base="." data-page="home">
+  <header class="masthead">
+    <figure class="banner banner--empty" data-banner>
+      <div class="banner__placeholder">
+        <span data-bind="home.bannerLabel">横幅待补</span>
+      </div>
+    </figure>
+    <h1 class="masthead__name">
+      <img src="images/background/name_ICON.png" alt="黄昏学院">
+    </h1>
+    <div class="masthead__panel">
+      <section class="intro" aria-label="简介">
+        <div class="intro__body" data-bind-paragraphs="home.intro">
+          <p>待填入</p>
+        </div>
+      </section>
+      <nav class="masthead__links" aria-label="企划入口">
+        <a class="fancy" href="pages/project.html">
+          <span class="top-key"></span>
+          <span class="text" data-bind="project.title">企划内容</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
+        <a class="fancy" href="pages/join.html">
+          <span class="top-key"></span>
+          <span class="text" data-bind="join.title">如何加入企划</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </a>
+      </nav>
+      <img class="split-line" src="images/background/split_line.png" alt="" aria-hidden="true">
+      <div class="card" role="group" aria-label="介绍入口">
+        <div class="card__pane card__pane--world">
+          <button type="button" class="card__face" aria-expanded="false">
+            <span class="card__label" data-bind="worldview.title">世界观介绍</span>
+          </button>
+          <p class="card__copy" data-bind="worldview.card">待填入</p>
+          <a class="card__detail" href="pages/worldview/index.html" data-bind="ui.detail">详情</a>
+        </div>
+        <div class="card__pane card__pane--factions">
+          <button type="button" class="card__face" aria-expanded="false">
+            <span class="card__label" data-bind="factions.title">势力介绍</span>
+          </button>
+          <p class="card__copy" data-bind="factions.card">待填入</p>
+          <a class="card__detail" href="pages/factions/index.html" data-bind="ui.detail">详情</a>
+        </div>
+        <div class="card__pane">
+          <button type="button" class="card__face" aria-expanded="false">
+            <span class="card__label" data-bind="story.title">剧情介绍</span>
+          </button>
+          <p class="card__copy" data-bind="story.card">待填入</p>
+          <a class="card__detail" href="pages/story/index.html" data-bind="ui.detail">详情</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <script src="content/site.js"></script>
+  <script src="js/apply-content.js"></script>
+</body>
+</html>

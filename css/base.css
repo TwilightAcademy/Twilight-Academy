@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  padding-bottom: 7rem;
+  font-family: var(--sans);
+  color: var(--ink);
+  background-color: #ffffff;
+  /* From Uiverse.io by Juanes200122 */
+  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  background-repeat: repeat;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.morse {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.morse__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  overflow: hidden;
+}
+
+.morse__rail--left {
+  left: clamp(1.65rem, 2.6vw, 3rem);
+}
+
+.morse__rail--right {
+  right: clamp(1.65rem, 2.6vw, 3rem);
+}
+
+@media (max-width: 640px) {
+  .morse__rail--left {
+    left: max(0.3rem, env(safe-area-inset-left, 0px));
+  }
+
+  .morse__rail--right {
+    right: max(0.3rem, env(safe-area-inset-right, 0px));
+  }
+
+  .morse__dot,
+  .morse__dash {
+    opacity: 0.4;
+  }
+
+  .morse__dot {
+    width: 3px;
+    height: 3px;
+  }
+
+  .morse__dash {
+    width: 2px;
+    height: 10px;
+  }
+}
+
+.morse__track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: morse-rise 28s linear infinite;
+}
+
+.morse__rail--right .morse__track {
+  animation-delay: -14s;
+}
+
+.morse__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.morse__dot,
+.morse__dash {
+  display: block;
+  flex: none;
+  margin-bottom: 7px;
+  background: #f77496;
+}
+
+.morse__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.morse__dash {
+  width: 3px;
+  height: 16px;
+}
+
+.morse__gap {
+  display: block;
+  flex: none;
+  width: 3px;
+  height: 12px;
+}
+
+.morse__word {
+  display: block;
+  flex: none;
+  width: 3px;
+  height: 26px;
+}
+
+@keyframes morse-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .morse__track {
+    animation: none;
+  }
+}

@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "WDXL Lubrifont SC";
+  src: url("../fonts/WD-XLLubrifontSC-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #0c0c0c;
+  --gold: #0c0c0c;
+  --gold-dim: rgba(12, 12, 12, 0.2);
+  --paper: #0c0c0c;
+  --paper-soft: rgba(12, 12, 12, 0.78);
+  --display: "SimHei", "黑体", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --sans: "SimHei", "黑体", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --masthead: min(1080px, calc(100% - 2.5rem));
+}

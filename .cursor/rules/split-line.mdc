@@ -1,0 +1,11 @@
+---
+description: 黄昏学院网站的分界线使用指定图片
+alwaysApply: true
+---
+
+# 分界线
+
+- 需要分界线时，使用 `images/background/split_line.png`（原图 3809×21）。
+- 用图片做分界，不要用 `<hr>` 或 CSS 边框充当分界线。
+- 宽度跟内容区对齐，高度按原图比例缩放，不要压扁或拉高。
+- 这是装饰图：`<img>` 的 `alt` 留空，或用背景图并加上 `aria-hidden="true"`。

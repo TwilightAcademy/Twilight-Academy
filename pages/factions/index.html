@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>势力介绍 · 黄昏学院</title>
+  <link rel="icon" href="../../images/background/SCHOOL_ICON.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/background/SCHOOL_ICON.png">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/page.css">
+  <link rel="stylesheet" href="../../css/factions.css">
+</head>
+<body data-base="../.." data-page="factions">
+  <article class="sheet sheet--wide">
+    <p class="sheet__home"><a href="../../index.html" data-bind="name">黄昏学院</a></p>
+    <h1 data-bind="factions.title">势力介绍</h1>
+    <div class="prose" data-bind-paragraphs="factions.body">
+      <p>待填入</p>
+    </div>
+    <nav class="faction-links" aria-label="三大势力">
+      <div class="faction-slot">
+        <a class="faction-card faction-card--academy" href="黄昏学院/index.html">
+          <div class="faction-card__panel">
+            <span class="faction-card__title" data-bind="factions.items.0.title">黄昏学院</span>
+            <p class="faction-card__copy" data-bind="factions.items.0.summary">位于背阳面的永夜大学城，有着全星球最顶尖的科技与人才</p>
+            <span class="faction-card__more" data-bind="ui.detail">详情</span>
+          </div>
+          <span class="faction-card__badge">
+            <img src="../../images/background/SCHOOL_ICON.png" alt="">
+          </span>
+        </a>
+      </div>
+      <div class="faction-slot">
+        <a class="faction-card" href="2/index.html">
+          <div class="faction-card__panel">
+            <span class="faction-card__title" data-bind="factions.items.1.title">待填入</span>
+            <p class="faction-card__copy" data-bind="factions.items.1.summary">待填入</p>
+            <span class="faction-card__more" data-bind="ui.detail">详情</span>
+          </div>
+          <span class="faction-card__badge">
+            <span class="faction-card__mark" data-bind="factions.items.1.mark">02</span>
+          </span>
+        </a>
+      </div>
+      <div class="faction-slot">
+        <a class="faction-card" href="3/index.html">
+          <div class="faction-card__panel">
+            <span class="faction-card__title" data-bind="factions.items.2.title">待填入</span>
+            <p class="faction-card__copy" data-bind="factions.items.2.summary">待填入</p>
+            <span class="faction-card__more" data-bind="ui.detail">详情</span>
+          </div>
+          <span class="faction-card__badge">
+            <span class="faction-card__mark" data-bind="factions.items.2.mark">03</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+    <p class="sheet__back"><a href="../../index.html" data-bind="ui.backHome">返回首页</a></p>
+  </article>
+  <script src="../../content/site.js"></script>
+  <script src="../../js/apply-content.js"></script>
+</body>
+</html>

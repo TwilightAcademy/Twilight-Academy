@@ -1,0 +1,130 @@
+.char-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.char-intro__top,
+.char-intro__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.5rem 1.8rem;
+  align-items: start;
+}
+
+.char-intro__avatar,
+.char-intro__figure {
+  margin: 0;
+  border: 1px solid var(--gold-dim);
+  background: #fff;
+}
+
+.char-intro__avatar img,
+.char-intro__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.char-intro__figure img {
+  max-height: 36rem;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.char-intro__text .sheet-title,
+.char-intro__text h1 {
+  margin: 0 0 1rem;
+}
+
+.char-intro__details {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.char-intro__details li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--gold-dim);
+  color: var(--paper-soft);
+  line-height: 1.65;
+}
+
+.char-intro__details li:first-child {
+  padding-top: 0;
+}
+
+.char-intro__label {
+  color: rgba(12, 12, 12, 0.5);
+}
+
+.char-place {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.char-place li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--gold-dim);
+  color: var(--paper-soft);
+}
+
+.char-place li:first-child {
+  padding-top: 0;
+}
+
+.char-place a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.char-place a:hover {
+  color: var(--paper);
+}
+
+.char-id {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--gold-dim);
+}
+
+.char-traits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.char-traits li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gold-dim);
+  color: var(--paper-soft);
+  line-height: 1.7;
+}
+
+.char-traits li:first-child {
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  .char-intro__top,
+  .char-intro__bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .char-intro__details li,
+  .char-place li {
+    grid-template-columns: 5.2rem 1fr;
+  }
+
+  .char-intro__figure img {
+    max-height: none;
+  }
+}
