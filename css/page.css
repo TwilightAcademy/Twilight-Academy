@@ -1,7 +1,49 @@
 .sheet {
+  position: relative;
+  z-index: 2;
   width: min(760px, calc(100% - 2.5rem));
   margin: 0 auto;
   padding: clamp(2.5rem, 8vh, 4.5rem) 0 3rem;
+}
+
+html:has(.has-dept-logo) {
+  background: #fff;
+}
+
+.has-dept-logo {
+  background: none;
+}
+
+.has-dept-logo::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  background-repeat: repeat;
+}
+
+.dept-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dept-watermark img {
+  width: min(108vh, 62rem);
+  max-width: 118vw;
+  height: auto;
+  opacity: 0.32;
+  mix-blend-mode: screen;
 }
 
 .sheet--wide {
