@@ -14,6 +14,7 @@ body {
 
 body {
   min-height: 100vh;
+  padding-top: 3.25rem;
   padding-bottom: 7rem;
   font-family: var(--sans);
   color: var(--ink);
@@ -37,6 +38,36 @@ img {
 :focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.35rem 1.25rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  background: #fff;
+  border-bottom: 1.5px solid #0c0c0c;
+}
+
+.topbar__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  color: #0c0c0c;
+}
+
+.topbar__back:hover {
+  color: rgba(12, 12, 12, 0.55);
 }
 
 .morse {

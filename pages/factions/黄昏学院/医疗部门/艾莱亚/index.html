@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../../../../../css/page.css">
   <link rel="stylesheet" href="../../../../../css/character.css">
 </head>
-<body data-base="../../../../.." data-page="factions" data-title="factions.items.0.departments.0.members.0.title">
+<body data-base="../../../../.." data-page="factions" data-title="factions.items.0.departments.0.members.0.title" data-back="../index.html">
   <article class="sheet sheet--wide">
     <p class="sheet__home"><a href="../../../../../index.html" data-bind="name">黄昏学院</a></p>
     <section>
@@ -37,25 +37,42 @@
       </div>
     </section>
     <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
-    <section>
-      <h2 data-bind="ui.place">所属</h2>
-      <ul class="char-place">
-        <li><span class="char-intro__label">所属势力</span><a href="../../index.html" data-bind="factions.items.0.title">黄昏学院</a></li>
-        <li><span class="char-intro__label">部门</span><a href="../index.html" data-bind="factions.items.0.departments.0.title">医疗部</a></li>
-        <li><span class="char-intro__label">职务</span><span data-bind="factions.items.0.departments.0.members.0.role">护理师</span></li>
-      </ul>
-    </section>
-    <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
-    <section>
-      <h2 data-bind="ui.studentId">学生证</h2>
-      <img class="char-id" data-src-bind="factions.items.0.departments.0.members.0.studentId" alt="艾莱亚学生证">
+    <section class="char-belong">
+      <div class="char-belong__main">
+        <h2 data-bind="ui.place">所属</h2>
+        <ul class="char-place">
+          <li><span class="char-intro__label">所属势力</span><a href="../../index.html" data-bind="factions.items.0.title">黄昏学院</a></li>
+          <li><span class="char-intro__label">部门</span><a href="../index.html" data-bind="factions.items.0.departments.0.title">医疗部</a></li>
+          <li><span class="char-intro__label">职务</span><span data-bind="factions.items.0.departments.0.members.0.role">护理师</span></li>
+        </ul>
+      </div>
+      <figure class="char-id">
+        <button type="button" class="char-id__open">
+          <img data-src-bind="factions.items.0.departments.0.members.0.studentId" alt="艾莱亚学生证">
+          <span class="char-id__hint" data-bind="ui.zoom">点击放大</span>
+        </button>
+      </figure>
     </section>
     <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
     <section>
       <h2 data-bind="ui.traits">性格描述</h2>
       <ul class="char-traits" data-bind-list="factions.items.0.departments.0.members.0.traits"></ul>
     </section>
-    <p class="sheet__back"><a href="../index.html">返回<span data-bind="factions.items.0.departments.0.title">医疗部</span></a></p>
+    <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
+    <section>
+      <h2 data-bind="ui.likes">喜欢的东西</h2>
+      <div class="char-drawers" id="char-likes" data-bind-drawers="factions.items.0.departments.0.members.0.likes" data-drawer-cue="ui.likeReason"></div>
+    </section>
+    <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
+    <section>
+      <h2 data-bind="ui.skills">擅长</h2>
+      <ul class="char-blocks" data-bind-blocks="factions.items.0.departments.0.members.0.skills"></ul>
+    </section>
+    <img class="split-line" src="../../../../../images/background/split_line.webp" alt="">
+    <section>
+      <h2 data-bind="ui.anecdotes">小趣事</h2>
+      <ol class="char-blocks char-blocks--numbered" data-bind-blocks="factions.items.0.departments.0.members.0.anecdotes"></ol>
+    </section>
   </article>
   <script src="../../../../../content/site.js"></script>
   <script src="../../../../../js/apply-content.js"></script>

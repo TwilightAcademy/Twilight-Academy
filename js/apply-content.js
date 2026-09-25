@@ -60,6 +60,89 @@
     });
   });
 
+  function fillParagraphs(parent, text) {
+    String(text == null || text === "" ? "待填入" : text).split(/\n{2,}/).forEach(function (block) {
+      var p = document.createElement("p");
+      p.textContent = block.trim();
+      parent.appendChild(p);
+    });
+  }
+
+  document.querySelectorAll("[data-bind-drawers]").forEach(function (el) {
+    var rows = readPath(el.getAttribute("data-bind-drawers"));
+    if (!Array.isArray(rows)) return;
+    var cuePath = el.getAttribute("data-drawer-cue");
+    var cueText = cuePath ? readPath(cuePath) : "";
+    if (typeof cueText !== "string" || !cueText) cueText = "喜欢的原因";
+    var prefix = el.id || "char-drawer";
+    el.replaceChildren();
+    rows.forEach(function (row, index) {
+      var titleText = (row && row.title) || "待填入";
+      var item = document.createElement("div");
+      item.className = "char-drawer";
+
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "char-drawer__toggle";
+      button.setAttribute("aria-expanded", "false");
+      var panelId = prefix + "-panel-" + index;
+      button.setAttribute("aria-controls", panelId);
+
+      var title = document.createElement("span");
+      title.className = "char-drawer__title";
+      title.textContent = titleText;
+
+      var meta = document.createElement("span");
+      meta.className = "char-drawer__meta";
+      var cue = document.createElement("span");
+      cue.className = "char-drawer__cue";
+      cue.textContent = cueText;
+      var chevron = document.createElement("span");
+      chevron.className = "char-drawer__chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      meta.appendChild(cue);
+      meta.appendChild(chevron);
+      button.appendChild(title);
+      button.appendChild(meta);
+
+      var panel = document.createElement("div");
+      panel.className = "char-drawer__panel";
+      panel.id = panelId;
+      panel.setAttribute("role", "region");
+      panel.setAttribute("aria-label", "喜欢" + titleText + "的原因");
+      panel.setAttribute("aria-hidden", "true");
+      var inner = document.createElement("div");
+      inner.className = "char-drawer__panel-inner";
+      fillParagraphs(inner, row && row.reason);
+      panel.appendChild(inner);
+
+      button.addEventListener("click", function () {
+        var open = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", open ? "false" : "true");
+        panel.setAttribute("aria-hidden", open ? "true" : "false");
+        item.classList.toggle("is-open", !open);
+      });
+
+      item.appendChild(button);
+      item.appendChild(panel);
+      el.appendChild(item);
+    });
+  });
+
+  document.querySelectorAll("[data-bind-blocks]").forEach(function (el) {
+    var rows = readPath(el.getAttribute("data-bind-blocks"));
+    if (!Array.isArray(rows)) return;
+    el.replaceChildren();
+    rows.forEach(function (row) {
+      var li = document.createElement("li");
+      var title = document.createElement("h3");
+      title.textContent = (row && row.title) || "待填入";
+      li.appendChild(title);
+      fillParagraphs(li, row && row.body);
+      el.appendChild(li);
+    });
+  });
+
   document.querySelectorAll("[data-bind-paragraphs]").forEach(function (el) {
     var value = readPath(el.getAttribute("data-bind-paragraphs"));
     if (typeof value !== "string") return;
@@ -455,6 +538,143 @@
     });
 
     document.body.appendChild(root);
+  }
+
+  function alignStudentCards() {
+    var narrow = window.matchMedia("(max-width: 640px)").matches;
+    document.querySelectorAll(".char-belong").forEach(function (section) {
+      var block = section.querySelector(".char-belong__main");
+      var img = section.querySelector(".char-id img");
+      if (!block || !img) return;
+      if (narrow) {
+        img.style.height = "";
+        img.style.width = "";
+        return;
+      }
+      img.style.width = "auto";
+      img.style.height = "1px";
+      var height = Math.round(block.getBoundingClientRect().height);
+      img.style.height = height + "px";
+      var settled = Math.round(block.getBoundingClientRect().height);
+      if (settled !== height) img.style.height = settled + "px";
+    });
+  }
+
+  alignStudentCards();
+  window.addEventListener("resize", alignStudentCards);
+  document.querySelectorAll(".char-id img").forEach(function (img) {
+    if (!img.complete) img.addEventListener("load", alignStudentCards);
+  });
+
+  document.querySelectorAll(".char-id__open").forEach(function (button) {
+    var source = button.querySelector("img");
+    if (!source) return;
+    button.addEventListener("click", function () {
+      if (document.querySelector(".char-id__stage")) return;
+      var start = source.getBoundingClientRect();
+      var maxW = Math.min(window.innerWidth * 0.88, 960);
+      var maxH = window.innerHeight * 0.86;
+      var grow = Math.min(maxW / start.width, maxH / start.height);
+      var endW = start.width * grow;
+      var endH = start.height * grow;
+      var endLeft = (window.innerWidth - endW) / 2;
+      var endTop = (window.innerHeight - endH) / 2;
+      var from = "translate(" + start.left + "px, " + start.top + "px) scale(" + (start.width / endW) + ")";
+      var to = "translate(" + endLeft + "px, " + endTop + "px) scale(1)";
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      var stage = document.createElement("div");
+      var backdrop = document.createElement("button");
+      var close = document.createElement("button");
+      var fly = document.createElement("img");
+      stage.className = "char-id__stage";
+      stage.setAttribute("role", "dialog");
+      stage.setAttribute("aria-modal", "true");
+      stage.setAttribute("aria-label", source.alt || ((data.ui && data.ui.studentId) || "学生证"));
+      backdrop.type = "button";
+      backdrop.className = "char-id__backdrop";
+      backdrop.setAttribute("aria-label", (data.ui && data.ui.close) || "关闭");
+      close.type = "button";
+      close.className = "char-id__close";
+      close.textContent = (data.ui && data.ui.close) || "关闭";
+      fly.className = "char-id__fly";
+      fly.src = source.currentSrc || source.src;
+      fly.alt = source.alt || ((data.ui && data.ui.studentId) || "学生证");
+      fly.style.width = endW + "px";
+      fly.style.height = endH + "px";
+      fly.style.transform = from;
+      stage.appendChild(backdrop);
+      stage.appendChild(fly);
+      stage.appendChild(close);
+      button.classList.add("is-zooming");
+      document.body.appendChild(stage);
+      document.body.style.overflow = "hidden";
+
+      var closing = false;
+      function finish() {
+        stage.remove();
+        button.classList.remove("is-zooming");
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", onKey);
+        button.focus();
+      }
+      function shut() {
+        if (closing) return;
+        closing = true;
+        stage.classList.remove("is-open");
+        fly.style.transform = from;
+        if (reduce) {
+          finish();
+          return;
+        }
+        var done = false;
+        function end() {
+          if (done) return;
+          done = true;
+          finish();
+        }
+        fly.addEventListener("transitionend", function (event) {
+          if (event.propertyName === "transform") end();
+        });
+        window.setTimeout(end, 700);
+      }
+      function onKey(event) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          shut();
+        }
+      }
+      close.addEventListener("click", shut);
+      backdrop.addEventListener("click", shut);
+      document.addEventListener("keydown", onKey);
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          stage.classList.add("is-open");
+          fly.style.transform = to;
+          close.focus();
+        });
+      });
+    });
+  });
+
+  if (!document.querySelector(".topbar")) {
+    var bar = document.createElement("header");
+    var back = document.createElement("a");
+    var backHref = document.body.getAttribute("data-back");
+    bar.className = "topbar";
+    back.className = "topbar__back";
+    back.textContent = (data.ui && data.ui.back) || "返回";
+    if (backHref) {
+      back.href = backHref;
+    } else {
+      back.href = "#";
+      back.addEventListener("click", function (event) {
+        event.preventDefault();
+        history.back();
+      });
+    }
+    bar.appendChild(back);
+    document.body.prepend(bar);
   }
 
   var page = document.body.getAttribute("data-page") || "home";
