@@ -103,7 +103,7 @@
     }
     if (emptyNote) emptyNote.hidden = true;
     var prefix = list.getAttribute("data-card-prefix") || "";
-    var fallbackLogo = list.getAttribute("data-card-logo") || "images/background/SCHOOL_ICON.png";
+    var fallbackLogo = list.getAttribute("data-card-logo") || "images/background/SCHOOL_ICON.webp";
     var detail = (data.ui && data.ui.detail) || "详情";
     list.replaceChildren();
     items.forEach(function (item) {

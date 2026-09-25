@@ -5,9 +5,9 @@
  * 图片只放在 images/，不要和 css、js、页面混在一起。
  *
  * 整页背景是 css/base.css 里的点阵，手机会和电脑铺同一张图案。
- * 首页主标题用 images/background/name_ICON.png，不要再用文字排「黄昏学院」。
- * 全站页签图标用 images/background/SCHOOL_ICON.png。
- * 横幅：images/banner/文件名.jpg，再把 home.banner 写成 "images/banner/文件名.jpg"。
+ * 首页主标题用 images/background/name_ICON.webp，不要再用文字排「黄昏学院」。
+ * 全站页签图标用 images/background/SCHOOL_ICON.webp。
+ * 横幅：images/banner/文件名.webp，再把 home.banner 写成 "images/banner/文件名.webp"。
  * 简介若有多段，段落之间空一行。
  *
  * 首页次级层面：
@@ -15,7 +15,7 @@
  *   pages/factions/   势力介绍      图片放 images/factions/
  *   pages/story/      剧情介绍      图片放 images/story/
  * 首页「企划内容」与「如何加入企划」在简介下方左右并排。
- * 再往下用 images/background/split_line.png，然后是三栏入口。
+ * 再往下用 images/background/split_line.webp，然后是三栏入口。
  * 点开一栏后，右下角「详情」才进入对应页面。
  * 三栏展开后，左上角是标题，靠左居中的短文改 worldview.card、factions.card、story.card。
  * 势力介绍页有三张链接卡，分别进入 pages/factions/黄昏学院/、2/、3/。
@@ -40,7 +40,7 @@ window.SITE_CONTENT = {
   },
   home: {
     intro: "待填入",
-    banner: "images/banner/banner.png",
+    banner: "images/banner/banner.webp",
     bannerLabel: "横幅待补"
   },
   project: {
@@ -80,7 +80,7 @@ window.SITE_CONTENT = {
             handle: "黄昏学院",
             bio: "各项医疗协助",
             photo: "#1c1c1c",
-            logo: "pages/factions/黄昏学院/医疗部门/LOGO.png",
+            logo: "pages/factions/黄昏学院/医疗部门/LOGO.webp",
             stats: [
               { value: "6", label: "人数" },
               { value: "薇斓黛尔", label: "负责人" },
@@ -102,7 +102,7 @@ window.SITE_CONTENT = {
                 portrait: "pages/factions/黄昏学院/医疗部门/艾莱亚/Alaya_Head_.webp",
                 head: "pages/factions/黄昏学院/医疗部门/艾莱亚/Alaya_Head_.webp",
                 full: "pages/factions/黄昏学院/医疗部门/艾莱亚/Alaya_FullSize_.webp",
-                studentId: "pages/factions/黄昏学院/医疗部门/艾莱亚/艾莱亚AU_学生证_03.png",
+                studentId: "pages/factions/黄昏学院/医疗部门/艾莱亚/艾莱亚AU_学生证_03.webp",
                 code: "待填入",
                 seat: "01",
                 details: [

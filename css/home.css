@@ -151,12 +151,12 @@
 }
 
 .card__pane--world .card__face {
-  background: #0c0c0c url("../images/worldview/world_cover.png") center / cover no-repeat;
+  background: #0c0c0c url("../images/worldview/world_cover.webp") center / cover no-repeat;
   color: #fff;
 }
 
 .card__pane--factions .card__face {
-  background: #e6e1d8 url("../images/factions/POWER.png") center / cover no-repeat;
+  background: #e6e1d8 url("../images/factions/POWER.webp") center / cover no-repeat;
   color: #0c0c0c;
 }
 
