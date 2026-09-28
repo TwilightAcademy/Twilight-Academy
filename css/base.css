@@ -27,6 +27,10 @@ body {
   line-height: 1.75;
 }
 
+body[data-page="home"] {
+  padding-top: 0;
+}
+
 a {
   color: inherit;
 }

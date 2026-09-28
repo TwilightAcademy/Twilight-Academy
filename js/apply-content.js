@@ -657,7 +657,8 @@
     });
   });
 
-  if (!document.querySelector(".topbar")) {
+  var isHome = (document.body.getAttribute("data-page") || "home") === "home";
+  if (!isHome && !document.querySelector(".topbar")) {
     var bar = document.createElement("header");
     var back = document.createElement("a");
     var backHref = document.body.getAttribute("data-back");
